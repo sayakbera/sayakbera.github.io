@@ -42,53 +42,98 @@
   </div>
 </header>
 <main class="page-content" aria-label="Content">
-  <div class="wrapper">
-<div class="research-container">
+  <!-- Expanded wrapper to 1400px (roughly 1.75x larger than default) -->
+  <div class="wrapper" style="max-width: 1400px !important; padding: 0 40px;">
+    <style>
+      /* Layout updates for wider screens */
+      .research-layout { display: flex; gap: 60px; align-items: flex-start; width: 100%; margin: 0 auto; }
+      
+      /* Sidebar slightly wider (40%) to give the video more prominence */
+      .research-sidebar { flex: 0 0 40%; position: -webkit-sticky; position: sticky; top: 40px; }
+      
+      .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+      .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+      
+      /* Enforced left-alignment */
+      .research-intro { color: #555; font-size: 1.1em; line-height: 1.7; text-align: left !important; }
+      
+      .research-content { flex: 1; }
+      .research-section { background-color: #fcfcfc; border: 1px solid #eaeaea; border-radius: 12px; padding: 30px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: left !important; }
+      .research-img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; margin-bottom: 20px; display: block; }
+      
+      .research-title { color: #222; margin-top: 0; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; margin-bottom: 15px; font-size: 1.6em; text-align: left !important; }
+      .research-description { line-height: 1.7; color: #444; text-align: left !important; }
+      .research-description p { text-align: left !important; }
+      
+      /* Mobile override */
+      @media (max-width: 850px) {
+        .research-layout { flex-direction: column; gap: 30px; }
+        .research-sidebar { flex: auto; width: 100%; position: static; margin-bottom: 10px; }
+      }
+    </style>
 
-  <div class="research-intro">
-    <p>My research is driven by the intersection of advanced deep learning architectures, computational efficiency, and real-world imaging systems. Below are the three primary vertices of my current academic focus.</p>
-  </div>
+    <div class="research-layout">
 
-  <div class="research-section">
-    <div class="research-media">
-      <img src="/assets/research/dist_ml.webp" alt="Distributed Machine Learning" class="research-img">
-    </div>
-    <div class="research-info">
-      <h2 class="research-title">Distributed ML Training</h2>
-      <div class="research-description">
-        <p>Scaling models efficiently requires rigorous infrastructure management. I am simulating 2D parallel training (Data and Pipeline parallelism) to heavily optimize computational costs and throughput.</p>
-        <p>A core aspect of this research involves utilizing internet alongside Wide Area Networks (WAN) to establish better, cheaper data transfer rates.</p>
+      <!-- ========================================== -->
+      <!-- LEFT COLUMN: Sticky Video & Intro -->
+      <!-- ========================================== -->
+      <div class="research-sidebar">
+        <div class="video-wrapper">
+          <!-- ADD YOUR YOUTUBE ID HERE -->
+          <iframe src="https://www.youtube.com/embed/8wCvuFX_N1U" title="Research Introduction" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <div class="research-intro">
+          <h3 class="research-title" style="font-size: 1.4em;">About my Research</h3>
+          
+          <p>My research is driven by the intersection of space-borne computation and distributed training, computational efficiency, and real-world imaging systems. I aim to optimize how we train and deploy complex models across highly constrained networks—ranging from traditional terrestrial servers to low Earth orbit space data centers. Below are the four primary vertices of my current academic focus:</p>
+          
+          <ul style="padding-left: 20px; line-height: 1.7;">
+            <li><strong>Space-Borne Computation & LLM Training</strong></li>
+            <li><strong>Distributed ML Training</strong></li>
+            <li><strong>Earth Imaging with SAR</strong></li>
+            <li><strong>Computer Vision &amp; XAI-Based Deepfake Detection</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- ========================================== -->
+      <!-- RIGHT COLUMN: Scrolling Vertices -->
+      <!-- ========================================== -->
+      <div class="research-content">
+
+        <!-- VERTEX 1 -->
+        <div class="research-section theme-card">
+          <img src="/assets/research/dist_ml.webp" alt="Distributed Machine Learning" class="research-img">
+          <h2 class="research-title">Distributed ML Training</h2>
+          <div class="research-description">
+            <p>Scaling models efficiently requires rigorous infrastructure management. I am simulating 2D parallel training (Data and Pipeline parallelism) to heavily optimize computational costs and throughput.</p>
+            <p>A core aspect of this research involves utilizing internet alongside Wide Area Networks (WAN) to establish better, cheaper data transfer rates.</p>
+          </div>
+        </div>
+
+        <!-- VERTEX 2 -->
+        <div class="research-section theme-card">
+          <img src="/assets/research/sar_research.webp" alt="Synthetic Aperture Radar Imaging" class="research-img">
+          <h2 class="research-title">Earth Imaging with SAR</h2>
+          <div class="research-description">
+            <p><a href="https://en.wikipedia.org/wiki/Synthetic-aperture_radar" target="_blank" style="text-decoration: none; font-weight: bold;">Synthetic Aperture Radar (SAR)</a> provides a profound advantage in Earth observation through its capability for 24/7 active imaging, regardless of weather or daylight. However, the sheer volume of data generated presents a significant transmission bottleneck.</p>
+            <p>My investigation focuses on designing an optimal model to downstream only the novel aspects of SAR-data tiles. To achieve this, we are engineering lightweight Generative AI models and implementing sophisticated onboard data compression techniques directly at the edge.</p>
+          </div>
+        </div>
+
+        <!-- VERTEX 3 -->
+        <div class="research-section theme-card">
+          <img src="/assets/research/cv_xai.webp" alt="Computer Vision and XAI" class="research-img">
+          <h2 class="research-title">Computer Vision &amp; XAI-Based Deepfake Detection</h2>
+          <div class="research-description">
+            <p>I have developed a novel hand-crafted image descriptor designed to extract highly unique features from input images, significantly improving downstream classification metrics.</p>
+            <p>Currently, this descriptor is being applied to fortify <a href="https://en.wikipedia.org/wiki/Explainable_artificial_intelligence" target="_blank" style="text-decoration: none; font-weight: bold;">Explainable AI</a> (XAI) based deepfake detection systems. By analyzing model behavior against sophisticated white-box and black-box adversarial attacks, we aim to establish highly robust, interpretable defense mechanisms.</p>
+          </div>
+        </div>
+
       </div>
     </div>
-  </div>
-
-  <div class="research-section">
-    <div class="research-media">
-      <img src="/assets/research/sar_research.webp" alt="Synthetic Aperture Radar Imaging" class="research-img">
-    </div>
-    <div class="research-info">
-      <h2 class="research-title">Earth Imaging with SAR</h2>
-      <div class="research-description">
-        <p><a href="https://en.wikipedia.org/wiki/Synthetic-aperture_radar" target="_blank" style="text-decoration: none; font-weight: bold;">Synthetic Aperture Radar (SAR)</a> provides a profound advantage in Earth observation through its capability for 24/7 active imaging, regardless of weather or daylight. However, the sheer volume of data generated presents a significant transmission bottleneck.</p>
-        <p>My investigation focuses on designing an optimal model to downstream only the novel aspects of SAR-data tiles. To achieve this, we are engineering lightweight Generative AI models and implementing sophisticated onboard data compression techniques directly at the edge.</p>
-      </div>
-    </div>
-  </div>
-
-  <div class="research-section">
-    <div class="research-media">
-      <img src="/assets/research/cv_xai.webp" alt="Computer Vision and XAI" class="research-img">
-    </div>
-    <div class="research-info">
-      <h2 class="research-title">Computer Vision &amp; XAI-Based Deepfake Detection</h2>
-      <div class="research-description">
-        <p>I have developed a novel hand-crafted image descriptor designed to extract highly unique features from input images, significantly improving downstream classification metrics.</p>
-        <p>Currently, this descriptor is being applied to fortify <a href="https://en.wikipedia.org/wiki/Explainable_artificial_intelligence" target="_blank" style="text-decoration: none; font-weight: bold;">Explainable AI</a> (XAI) based deepfake detection systems. By analyzing model behavior against sophisticated white-box and black-box adversarial attacks, we aim to establish highly robust, interpretable defense mechanisms.</p>
-      </div>
-    </div>
-  </div>
-
-</div>
   </div>
 </main>
 
